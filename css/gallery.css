@@ -1,0 +1,59 @@
+#gallery_container {
+    width: 900px;
+    height:500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+#previous_image {
+
+}
+
+
+.d
+{
+    margin-left: auto;
+    margin-right:auto;
+}
+#slider {
+    float: left;
+    display: inline-block;
+    margin: 0 auto;
+    width: 700px;
+
+}
+
+
+
+#next_image {
+}
+
+.gallery_button {
+    float: left;
+    width: 80px;
+    height: 80px;
+    margin-top: 200px;
+
+
+}
+
+.gallery_button:hover,
+.gallery_button:active {
+
+
+}
+
+.gallery_button:active {
+
+}
+
+#poveznica
+{
+    width: 900px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top:50px;
+}
