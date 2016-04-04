@@ -9,6 +9,45 @@ $(document).ready(function () {
         transitions: ["bars3d", "cube", "tiles3d", "blinds3d", "turn"]
     });
 
+    resize_gallery();
+    $(window).resize(function () {
+        resize_gallery();
+    });
+
+    function resize_gallery() {
+        var ratio = $(window).width() / 1000;
+        var margin = -80 * (1 / ratio);
+
+        if (ratio > 1) {
+            $('#gallery_container').css({transform: ''});
+            $('#gallery_container').css("margin-left", "");
+            $('#gallery_container').css("margin-right", "");
+            $('#poveznica').css({transform: ""});
+            $('#poveznica').css("margin-left", "");
+            $('#poveznica').css("margin-right", "");
+            $('#poveznica').css("margin-top", "");
+        }
+        else {
+            if ($(window).width() < 750)
+                margin = -100 * (1 / ratio);
+            if ($(window).width() < 350)
+                margin = -95 * (1 / ratio);
+            $('#gallery_container').css({transform: 'scale(' + ratio + ')'});
+            $('#gallery_container').css("margin-left", margin + "px");
+            $('#gallery_container').css("margin-right", margin + "px");
+            $('#poveznica').css({transform: 'scale(' + ratio + ')'});
+            $('#poveznica').css("margin-left", margin + "px");
+            $('#poveznica').css("margin-right", margin + "px");
+
+            if ($(window).width() < 550 && $(window).width() > 350)
+                $('#poveznica').css("margin-top", margin * 2);
+            else if($(window).width() < 350)
+                $('#poveznica').css("margin-top", margin * 1.7);
+            else
+                $('#poveznica').css("margin-top", margin * 3);
+        }
+    }
+
     // If browser doesn't support 3D then inform the user
     if (!flux.browser.supports3d) {
         alert("The '" + event.target.innerHTML + "' transition requires a browser that supports 3D transforms");
