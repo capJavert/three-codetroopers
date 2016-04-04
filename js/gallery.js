@@ -45,7 +45,7 @@ $(document).ready(function () {
 
     function find_image_info() {
         var link, show;
-        z = (z + 11) % 11;
+        z = (z + 13) % 13;
         if (z === 0 || z === 1) {
             link = "https://bicikli.mup.hr/";
             show = "bicikli.mup.hr";
@@ -81,10 +81,25 @@ $(document).ready(function () {
             show = "djecjaknjiga.hr";
             shows(link, show);
         }
-        // 8,9 = TV postaje
-        else if (z === 10) {
+        // 8 = TV postaje
+        else if (z === 9) {
             link = "https://play.google.com/store/apps/details?id=ml.smart_ideas.smarthome&hl=en";
             show = "Google play store";
+            shows(link, show);
+        }
+        else if (z === 10) {
+            link = "https://github.com/nikolamajcen/rent-a-car";
+            show = "Github";
+            shows(link, show);
+        }
+        else if (z === 11) {
+            link = "https://play.google.com/store/apps/details?id=com.nikolamajcen.uhrs";
+            show = "Google play store";
+            shows(link, show);
+        }
+        else if (z === 12) {
+            link = "https://github.com/nikolamajcen/on-the-map";
+            show = "Github";
             shows(link, show);
         }
         else {
