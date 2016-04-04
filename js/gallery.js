@@ -3,7 +3,7 @@ $(document).ready(function () {
         alert("Flux Slider requires a browser that supports CSS3 transitions");
 
     window.f = new flux.slider('#slider', {
-        autoplay: false,
+        autoplay: true,
         pagination: false,
         captions: true,
         transitions: ["bars3d", "cube", "tiles3d", "blinds3d", "turn"]

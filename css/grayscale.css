@@ -381,8 +381,16 @@ body {
 	width: 100%;
 }
 
+
 @media screen and (max-width: 1024px) {
   canvas {
     width: 450% !important;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #previous_image,
+  #next_image {
+    visibility: hidden;
   }
 }
