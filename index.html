@@ -41,6 +41,8 @@
     <script src="src/Monster.js"></script>
     <script src="src/Game.js"></script>
 
+    <!-- Hammer.js -->
+    <script src="js/hammer.min.js"></script>
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -132,7 +134,7 @@
     <script type="text/javascript">
         (function () {
 
-            var game = new Phaser.Game(7000, 768, Phaser.CANVAS, 'game');
+            var game = new Phaser.Game(6500, 768, Phaser.CANVAS, 'game');
 
             game.state.add('Boot', Rhea.Boot);
             game.state.add('Preloader', Rhea.Preloader);
@@ -183,19 +185,18 @@
             <i class="fa fa-angle-right animated gallery_i"></i>
         </div>
 
-
     </div>
-
+    <div class="clearfix"></div>
     <div id="poveznica" style="display: none;">
-        <a target="_blank" href="https://github.com/1susec/" class="btn btn-default btn-lg"><i
-                class="fa fa-external-link fa-fw"></i> <span class="network-name" id="ha">dddd</span></a>
+        <a target="_blank" href="https://github.com/1susec/" class="btn btn-default btn-lg">
+        <i class="fa fa-external-link fa-fw"></i> <span class="network-name" id="ha">dddd</span></a>
     </div>
 
+    <br /><br />
+    <a href="#contact" class="btn btn-circle page-scroll">
+        <i class="fa fa-angle-down animated"></i>
+    </a>
 
-    <div class="clearfix margin-big">
-
-
-    </div>
 </section>
 
 <!-- Contact Section -->
@@ -248,6 +249,17 @@
 <script src="js/flux.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/gallery.js" type="text/javascript" charset="utf-8"></script>
 
-</body>
+<script>
+  $(document).ready(function () {
+    var element = document.getElementsByTagName('canvas');
+    var hammertime = new Hammer(element[0]);
+    hammertime.on('swipe', function(ev) {
+        console.log(ev);
+        var e = $.Event("keydown", { keyCode: 39});
+        $(window).trigger(e)
+    });
+  });
+</script>
 
+</body>
 </html>

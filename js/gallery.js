@@ -32,7 +32,7 @@ $(document).ready(function () {
             $('#poveznica').css({transform: ""});
             $('#poveznica').css("margin-left", "");
             $('#poveznica').css("margin-right", "");
-            $('#poveznica').css("margin-top", "");
+            $('#poveznica').css("margin-top", 20);
         }
         else {
             if ($(window).width() < 750)
@@ -40,9 +40,10 @@ $(document).ready(function () {
             if ($(window).width() < 350)
                 margin = -95 * (1 / ratio);
             $('#gallery_container').css({transform: 'scale(' + ratio + ')'});
+
             $('#gallery_container').css("margin-left", margin + "px");
             $('#gallery_container').css("margin-right", margin + "px");
-            $('#poveznica').css({transform: 'scale(' + ratio + ')'});
+            //$('#poveznica').css({transform: 'scale(' + ratio + ')'});
             $('#poveznica').css("margin-left", margin + "px");
             $('#poveznica').css("margin-right", margin + "px");
 

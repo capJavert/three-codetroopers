@@ -384,7 +384,7 @@ body {
 
 @media screen and (max-width: 1024px) {
   canvas {
-    width: 450% !important;
+    width: 500% !important;
   }
 }
 
