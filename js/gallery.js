@@ -1,6 +1,7 @@
 $(document).ready(function () {
-    if (!flux.browser.supportsTransitions)
+    /*if (!flux.browser.supportsTransitions)
         alert("Flux Slider requires a browser that supports CSS3 transitions");
+        */
 
     var image_number = 0;
 
@@ -57,10 +58,10 @@ $(document).ready(function () {
     }
 
     // If browser doesn't support 3D then inform the user
-    if (!flux.browser.supports3d) {
+    /*if (!flux.browser.supports3d) {
         alert("The '" + event.target.innerHTML + "' transition requires a browser that supports 3D transforms");
         return;
-    }
+    }*/
 
     $("#next_image").click(function () {
         window.f.stop();
