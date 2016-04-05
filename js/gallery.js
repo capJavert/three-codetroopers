@@ -2,11 +2,18 @@ $(document).ready(function () {
     if (!flux.browser.supportsTransitions)
         alert("Flux Slider requires a browser that supports CSS3 transitions");
 
+    var image_number = 0;
+
     window.f = new flux.slider('#slider', {
         autoplay: true,
         pagination: false,
         captions: true,
-        transitions: ["bars3d", "cube", "tiles3d", "blinds3d", "turn"]
+        transitions: ["bars3d", "cube", "tiles3d", "blinds3d", "turn"],
+        onTransitionEnd: function (data) {
+            var img = data.currentImage;
+            image_number = parseInt(img.alt);
+            find_image_info();
+        }
     });
 
     resize_gallery();
@@ -41,7 +48,7 @@ $(document).ready(function () {
 
             if ($(window).width() < 550 && $(window).width() > 350)
                 $('#poveznica').css("margin-top", margin * 2);
-            else if($(window).width() < 350)
+            else if ($(window).width() < 350)
                 $('#poveznica').css("margin-top", margin * 1.7);
             else
                 $('#poveznica').css("margin-top", margin * 3);
@@ -55,14 +62,24 @@ $(document).ready(function () {
     }
 
     $("#next_image").click(function () {
+        window.f.stop();
         window.f.next();
-        z++;
-        find_image_info();
+        setTimeout(function () {
+            if (window.f.isPlaying() === false)
+                window.f.start();
+        }, 1500);
+        //z++;
+        //find_image_info();
     });
     $("#previous_image").click(function () {
+        window.f.stop();
         window.f.prev();
-        z--
-        find_image_info();
+        setTimeout(function () {
+            if (window.f.isPlaying() === false)
+                window.f.start();
+        }, 1500);
+        //z--
+        //find_image_info();
     });
 
     function shows(link, show) {
@@ -73,7 +90,6 @@ $(document).ready(function () {
         });
     }
 
-    var z = 0;
     find_image_info();
 
     function hide() {
@@ -84,59 +100,59 @@ $(document).ready(function () {
 
     function find_image_info() {
         var link, show;
-        z = (z + 13) % 13;
-        if (z === 0 || z === 1) {
+        image_number = (image_number + 13) % 13;
+        if (image_number === 0 || image_number === 1) {
             link = "https://bicikli.mup.hr/";
             show = "bicikli.mup.hr";
             shows(link, show);
         }
-        else if (z === 2) {
+        else if (image_number === 2) {
             link = "http://stolarija-sljiva.hr/";
             show = "stolarija-sljiva.hr";
             shows(link, show);
         }
-        else if (z === 3) {
+        else if (image_number === 3) {
             link = "popusti.oglasnik.hr";
             show = "popusti.oglasnik.hr";
             shows(link, show);
         }
-        else if (z === 4) {
+        else if (image_number === 4) {
             link = "http://ngnconsulting.se/en/";
             show = "ngnconsulting.se";
             shows(link, show);
         }
-        else if (z === 5) {
+        else if (image_number === 5) {
             link = "http://ekarte.hr/";
             show = "ekarte.hr";
             shows(link, show);
         }
-        else if (z === 6) {
+        else if (image_number === 6) {
             link = "http://dubrovnikdigest.com/";
             show = "dubrovnikdigest.com";
             shows(link, show);
         }
-        else if (z === 7) {
+        else if (image_number === 7) {
             link = "http://djecjaknjiga.hr/";
             show = "djecjaknjiga.hr";
             shows(link, show);
         }
         // 8 = TV postaje
-        else if (z === 9) {
+        else if (image_number === 9) {
             link = "https://play.google.com/store/apps/details?id=ml.smart_ideas.smarthome&hl=en";
             show = "Google play store";
             shows(link, show);
         }
-        else if (z === 10) {
+        else if (image_number === 10) {
             link = "https://github.com/nikolamajcen/rent-a-car";
             show = "Github";
             shows(link, show);
         }
-        else if (z === 11) {
+        else if (image_number === 11) {
             link = "https://play.google.com/store/apps/details?id=com.nikolamajcen.uhrs";
             show = "Google play store";
             shows(link, show);
         }
-        else if (z === 12) {
+        else if (image_number === 12) {
             link = "https://github.com/nikolamajcen/on-the-map";
             show = "Github";
             shows(link, show);
